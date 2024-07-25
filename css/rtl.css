@@ -738,3 +738,17 @@ header .lang:hover {
 #contact .container form button:hover {
   background-color: #6464c9;
 }
+
+footer {
+  width: 100%;
+  background-color: #2e2e2e;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+footer span {
+  color: var(--main-color);
+  font-weight: 700;
+}
