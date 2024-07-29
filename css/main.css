@@ -64,7 +64,7 @@ section {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0 0 0 / 30%);
+  background-color: rgba(0 0 0 / 50%);
 }
 
 .main-title {
@@ -428,35 +428,8 @@ header .lang:hover {
   }
 }
 
-#bio .image::after,
-#bio .image::before {
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  border: 2px solid var(--main-color);
-  z-index: -1;
-}
-
-@media (max-width: 992px) {
-  #bio .image::after,
-  #bio .image::before {
-    display: none;
-  }
-}
-
-#bio .image::after {
-  right: 70px;
-  top: -45px;
-}
-
-#bio .image::before {
-  left: 70px;
-  bottom: -45px;
-}
-
 #bio .image img {
-  width: 275px;
+  width: 325px;
   max-width: 100%;
 }
 
@@ -477,7 +450,7 @@ header .lang:hover {
 }
 
 #bio .text p {
-  font-size: 24px;
+  font-size: 22px;
   text-align: justify;
   margin-bottom: 25px;
   color: var(--main-color);
@@ -501,6 +474,11 @@ header .lang:hover {
 
 /* End */
 /* Projects */
+
+#projects {
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
 
 #projects .container {
   columns: 4;
@@ -594,159 +572,180 @@ header .lang:hover {
 
 /* Contact */
 
-#contact .container {
+#contact {
+  min-height: 80vh;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#contact .info {
+  display: flex;
+  flex-basis: 50%;
+  position: relative;
+  background-image: url("../imgs/contact.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
 }
 
 @media (max-width: 992px) {
-  #contact .container {
-    flex-direction: column;
+  #contact .info {
+    flex-basis: 100%;
+  }
+}
+
+#contact .info-container {
+  z-index: 1;
+  margin-top: 100px;
+}
+
+@media (max-width: 992px) {
+  #contact .info-container {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .info {
+    text-align: center;
+    justify-content: center;
     align-items: center;
   }
 }
 
-#contact .container .info {
-  flex-basis: 25%;
-}
-
-@media (max-width: 992px) {
-  #contact .container .info {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-#contact .container .info > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-@media (max-width: 992px) {
-  #contact .container .info > div {
-    align-items: center;
-  }
-}
-
-#contact .container .info > div:first-child {
+#contact .info-container h2 {
+  font-size: 42px;
+  font-weight: 400;
+  color: white;
   margin-bottom: 50px;
 }
 
-#contact .container .info > div .title {
-  font-size: 20px;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-#contact .container .info > div a {
-  font-size: 18px;
-  color: var(--main-color);
-  margin-bottom: 5px;
-}
-
-@media (max-width: 992px) {
-  #contact .container .info > div a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-}
-
-#contact .container .info > div a i {
-  font-size: 20px;
-  margin-right: 5px;
-  width: 22.5px;
-}
-
-@media (max-width: 992px) {
-  #contact .container .info > div a i {
-    margin-bottom: 5px;
-  }
-}
-
-#contact .container form {
-  flex-basis: 65%;
+#contact .info-container .box {
   display: flex;
   flex-direction: column;
 }
 
+#contact .info-container .box a {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#contact .info-container .box a i {
+  width: 21px;
+  margin-right: 10px;
+}
+
+#contact form {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+}
+
 @media (max-width: 992px) {
-  #contact .container form {
-    width: 100%;
-    margin-bottom: 50px;
+  #contact form {
+    padding: 50px;
   }
 }
 
-#contact .container form input {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 15px;
-  border: 1px solid var(--main-color);
-}
-
-#contact .container form input::placeholder {
+#contact form label {
   font-size: 18px;
-  text-transform: uppercase;
+  font-weight: 700;
+  width: 100%;
 }
 
-#contact .container form input:focus {
-  border-bottom: 1px solid black;
+#contact form input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--main-color);
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+
+#contact form input:focus {
+  border-color: black;
   outline: none;
 }
 
-#contact .container form textarea {
+#contact form input:hover {
+  border-color: black;
+}
+
+#contact form textarea {
   width: 100%;
-  padding: 20px;
-  height: 200px;
-  margin-bottom: 15px;
-  border: 1px solid var(--main-color);
+  border: 0;
+  border-bottom: 1px solid var(--main-color);
+  padding: 15px 0;
+  margin-bottom: 20px;
+  height: 100px;
   resize: none;
 }
 
-#contact .container form textarea::placeholder {
-  font-size: 18px;
-  text-transform: uppercase;
-}
-
-#contact .container form textarea:focus {
-  border-bottom: 1px solid black;
+#contact form textarea:focus {
+  border-color: black;
   outline: none;
 }
 
-#contact .container form button {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  padding: 15px 25px;
-  background-color: #8484e7;
+#contact form textarea:hover {
+  border-color: black;
+}
+
+#contact form button {
+  background-color: transparent;
   border: none;
-  outline: none;
-  font-size: 22px;
+  display: flex;
+  align-items: end;
+  margin-right: auto;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--main-color);
   cursor: pointer;
-  color: white;
-  text-transform: uppercase;
 }
 
-#contact .container form button:hover {
-  background-color: #6464c9;
+#contact form button i {
+  margin-left: 5px;
+  transition-delay: 0s;
 }
+
+#contact form button:hover {
+  color: black;
+}
+
+#contact form button:hover i {
+  margin-left: 15px;
+}
+
+@media (max-width: 992px) {
+  #contact form {
+    flex-basis: 100%;
+  }
+}
+
+/* End */
+
+/* Footer */
 
 footer {
   width: 100%;
   background-color: #2e2e2e;
-  padding: 15px;
+  padding: 25px 0;
   text-align: center;
   color: white;
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 18px;
+  }
 }
 
 footer span {
   color: var(--main-color);
   font-weight: 700;
 }
+
+/* End */
